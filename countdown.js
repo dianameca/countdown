@@ -62,7 +62,7 @@ function playMood(mood) {
         case 'nostalgic':
           audio = new Audio(path);
           document.querySelector('#selected-mood').innerHTML = title + "Nostalgic";
-          document.querySelector('footer').innerHTML = "<!--Compact - Fata din vis • Vama Veche - Epilog-->";
+          document.querySelector('footer').innerHTML = "<!--Compact - Fata din vis &nbsp • &nbsp Vama Veche - Epilog-->";
           break;
         case 'party':
           audio = new Audio(path);
@@ -72,7 +72,7 @@ function playMood(mood) {
         case 'pensive':
           audio = new Audio(path);
           document.querySelector('#selected-mood').innerHTML = title + "Pensive";
-          document.querySelector('footer').innerHTML = "Tina Turner & Eros Ramazzotti - Cose Della Vita";
+          document.querySelector('footer').innerHTML = "Neil Diamond - Heart of Gold";
           break;
         case 'beachy':
           audio = new Audio(path);
@@ -97,7 +97,7 @@ function playMood(mood) {
         case 'doowop':
           audio = new Audio(path);
           document.querySelector('#selected-mood').innerHTML = title + "Doo wop";
-          document.querySelector('footer').innerHTML = "Dion - Runaround Sue";
+          document.querySelector('footer').innerHTML = "Gene Chandler - Duke Of Earl &nbsp • &nbsp Dion - Runaround Sue";
           break;
         case 'taylor':
           audio = new Audio(path);
@@ -107,12 +107,12 @@ function playMood(mood) {
         case 'soulful':
           audio = new Audio(path);
           document.querySelector('#selected-mood').innerHTML = title + "Soulful";
-          document.querySelector('footer').innerHTML = "Aretha Franklin - I Say A Little Prayer";
+          document.querySelector('footer').innerHTML = "Aretha Franklin - I Say A Little Prayer &nbsp • &nbsp Ben E. King - Stand by Me";
         break;
         case 'rockandroll':
           audio = new Audio(path);
-          document.querySelector('#selected-mood').innerHTML = title + "Let's rock";
-          document.querySelector('footer').innerHTML = "Elvis Presley - Jailhouse Rock";
+          document.querySelector('#selected-mood').innerHTML = title + "Rock 'n roll";
+          document.querySelector('footer').innerHTML = "Fats Domino - Blueberry Hill &nbsp • &nbsp Little Richard - Good Golly, Miss Molly";
         break;
         case 'hopeful':
           audio = new Audio(path);
