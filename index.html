@@ -13,7 +13,6 @@
    <body>
       <div class="container">
          <div class="section">
-            <button id="mode">☀️</button>
             <div id="moods">
                <button id="hopeful" onclick="playMood(this.id);">🕊️</button>
                <button id="soulful" onclick="playMood(this.id);">🙌</button>
@@ -41,8 +40,11 @@
             <div id="countdown"></div>
          </div>
          <div class="section">
-            <div id="bonhomme">
-               <div class="wrapper">
+            <div class="wrapper">
+               <div id="mode" class="noselect">
+                  <img src="assets/img/moon.svg"></img>
+               </div>
+               <div id="bonhomme">
                   <div id="head" class="head"></div>
                   <div id="torso" class="torso"></div>
                   <div id="leftarm" class="leftarm"></div>
@@ -52,7 +54,6 @@
                   <div id="rightleg" class="rightleg"></div>
                   <div id="rightfoot" class="rightfoot"></div>
                </div>
-               <button id="hide">Make it stop</button> 
             </div>
          </div>
       </div>

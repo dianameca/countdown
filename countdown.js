@@ -2,32 +2,36 @@ var started = 0;
 /* pause by default */
 document.querySelector('#toggleAudio').innerHTML = "PLAY";
 document.querySelector('#selected-mood').innerHTML = "Choose a mood, then press" 
-                                          + "<span style=\"color:red;font-size:120%;\">" 
+                                          + "<span class=\"play\"\">" 
                                           + " PLAY</span>";
 
 var m = 1;
 document.querySelector('#mode').addEventListener("click", function() {
   if(m % 3 === 0) {
-    document.querySelector('#mode').innerHTML = "☀️";
+    document.querySelector('#mode').innerHTML = "<img src=\"assets/img/moon.svg\"></img>";
+    //document.querySelector('body').style.backgroundColor= "white";
   } else if (m % 3 === 1) {
-    document.querySelector('#mode').innerHTML = "🌈";
+    document.querySelector('#mode').innerHTML = "<img src=\"assets/img/rainbow.svg\"></img>";
+    //document.querySelector('body').style.backgroundColor= "white";
   } else if (m % 3 === 2) {
-    document.querySelector('#mode').innerHTML = "🌑";
+    document.querySelector('#mode').innerHTML = "<img src=\"assets/img/sun.svg\"></img>";
+    //document.querySelector('body').style.backgroundColor= "black";
   }
   ++m;
 });
 
 /* toggle stick man animations */
-var counter = 0;
-document.querySelector('#hide').addEventListener("click", function() {
+var c = 1;
+document.querySelector('.torso').addEventListener("click", function() {
   var bonhomme = document.querySelectorAll('#head, #torso, #leftleg, #rightleg, #rightarm, #leftarm, #rightfoot, #leftfoot');
-  counter += 1;
-  if(counter === 1) {
-    document.querySelector('#rightarm').classList.add("click1R");
-    document.querySelector('#leftarm').classList.add("click1L");
-    document.querySelector('#rightfoot').classList.add("none");
-    document.querySelector('#hide').innerHTML += "!";
-  } else if(counter === 2) {
+  document.querySelector('#rightarm').classList.add("click1R");
+  document.querySelector('#leftarm').classList.add("click1L");
+  if(c % 3 === 0) {
+    document.querySelector('#rightarm').classList.replace("none", "click1R");
+    document.querySelector('#leftarm').classList.replace("none", "click1L");
+    document.querySelector('#rightfoot').classList.replace("none", "rightfoot");
+    //document.querySelector('#rightfoot').classList.add("none");
+  } else if(c % 3 === 1) {
     document.querySelector('#rightarm').classList.replace("click1R", "none");
     document.querySelector('#leftarm').classList.replace("click1L", "none");
     //document.querySelector('#rightleg').classList.add("click2R");
@@ -37,12 +41,15 @@ document.querySelector('#hide').addEventListener("click", function() {
     document.querySelector('#rightfoot').classList.add("none");
     //document.querySelector('#head').classList.add("click2R");
     //document.querySelector('#torso').classList.add("click2R");
-    document.querySelector('#hide').innerHTML += "!";
-  } else if(counter > 2) {
-    document.querySelector('#bonhomme').innerHTML = 
-                            "<div style = \"margin-top: 40px;font-size: 15px;\">Okay 😅</div>"
-                            + "<img src=\"assets/img/dove.svg\"></img>";
+    document.querySelector('#rightfoot').classList.replace("none", "rightfoot");
+  } else if(c % 3 === 2) {
+    //document.querySelector('#bonhomme').innerHTML = "<img src=\"assets/img/dove.svg\"></img>";
+    document.querySelector('#rightarm').classList.replace("click1R", "none");
+    document.querySelector('#leftarm').classList.replace("click1L", "none");
+    document.querySelector('#leftleg').classList.replace("click1L", "none");
+    document.querySelector('#leftfoot').classList.replace("click1L", "none");
   }
+  ++c;
 });
 
 var mood;
@@ -62,7 +69,7 @@ function playMood(mood) {
         case 'nostalgic':
           audio = new Audio(path);
           document.querySelector('#selected-mood').innerHTML = title + "Nostalgic";
-          document.querySelector('footer').innerHTML = "<!--Compact - Fata din vis &nbsp • &nbsp Vama Veche - Epilog-->";
+          document.querySelector('footer').innerHTML = "<!--Compact - Fata din vis &nbsp;• &nbsp; Vama Veche - Epilog-->";
           break;
         case 'party':
           audio = new Audio(path);
@@ -72,7 +79,7 @@ function playMood(mood) {
         case 'pensive':
           audio = new Audio(path);
           document.querySelector('#selected-mood').innerHTML = title + "Pensive";
-          document.querySelector('footer').innerHTML = "Neil Diamond - Heart of Gold";
+          document.querySelector('footer').innerHTML = "Neil Young - Heart Of Gold";
           break;
         case 'beachy':
           audio = new Audio(path);
@@ -97,7 +104,7 @@ function playMood(mood) {
         case 'doowop':
           audio = new Audio(path);
           document.querySelector('#selected-mood').innerHTML = title + "Doo wop";
-          document.querySelector('footer').innerHTML = "Gene Chandler - Duke Of Earl &nbsp • &nbsp Dion - Runaround Sue";
+          document.querySelector('footer').innerHTML = "Gene Chandler - Duke Of Earl &nbsp; • &nbsp; Dion - Runaround Sue";
           break;
         case 'taylor':
           audio = new Audio(path);
@@ -107,12 +114,12 @@ function playMood(mood) {
         case 'soulful':
           audio = new Audio(path);
           document.querySelector('#selected-mood').innerHTML = title + "Soulful";
-          document.querySelector('footer').innerHTML = "Aretha Franklin - I Say A Little Prayer &nbsp • &nbsp Ben E. King - Stand by Me";
+          document.querySelector('footer').innerHTML = "Aretha Franklin - I Say A Little Prayer &nbsp; • &nbsp; Ben E. King - Stand by Me";
         break;
         case 'rockandroll':
           audio = new Audio(path);
-          document.querySelector('#selected-mood').innerHTML = title + "Rock 'n roll";
-          document.querySelector('footer').innerHTML = "Little Richard - Good Golly, Miss Molly &nbsp • &nbsp Elvis Presley - Jailhouse Rock";
+          document.querySelector('#selected-mood').innerHTML = title + "Let's rock";
+          document.querySelector('footer').innerHTML = "Little Richard - Good Golly Miss Molly &nbsp;• &nbsp; Elvis Presley - Jailhouse Rock";
         break;
         case 'hopeful':
           audio = new Audio(path);
