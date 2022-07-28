@@ -77,7 +77,7 @@ function playMood(mood) {
         case 'beachy':
           audio = new Audio(path);
           document.querySelector('#selected-mood').innerHTML = title + "Beachy";
-          document.querySelector('footer').innerHTML = "UB40 - Red Red Wine";
+          document.querySelector('footer').innerHTML = "Bob Marley and the Wailers - No Woman, No Cry";
           break;
         case 'motivated':
           audio = new Audio(path);
