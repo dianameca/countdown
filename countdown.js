@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("script loaded");
 
   // state variables
+  let currentMood = null;
   let currentModeIndex = 0; // to cycle through mood icons
   let animationToggleCount = 0;
   let currentAudio = null; // holds current audio
@@ -17,6 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // initial ui
   audioToggleButton.innerHTML = "PLAY"; // set initial button text to PLAY
   moodDisplay.innerHTML = "Choose a mood, then press <span style='color:red;font-size:120%;'>PLAY</span>";
+
+  function getCurrentMood() {
+    return currentMood;
+  }
+    
+  function setCurrentMood(mood) {
+    currentMood = mood;
+  }
 
   // update the current mode displayed on the mode button
   function updateCurrentMode() {
@@ -108,10 +117,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // play/pause listener for the audio toggle button
   audioToggleButton.addEventListener("click", () => {
       console.log("audio toggle button clicked");
-      let mood = null;
-      if (!mood) {
+      if (!getCurrentMood()) {
         console.log("no mood selected");
-        moodDisplay.innerHTML = "Choose a mood before pressing <span style='color:red;font-size:120%;'>PLAY</span>";
+        moodDisplay.innerHTML = "<span style='font-size:180%;'>⚠️</span>" + 
+                                " Choose a mood before pressing" + 
+                                " <span style='color:red;font-size:120%;'>PLAY</span>";
+        return;
       }
       if (currentAudio) {
           if (currentAudio.paused) { // if audio is currently paused, play it
@@ -130,6 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("#moods button").forEach(button => {
       button.addEventListener("click", () => {
           console.log(`${button.id} mood button clicked`);
+          setCurrentMood(button.id);
           playMoodAudio(button.id);
       });
   });
