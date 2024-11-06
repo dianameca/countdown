@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("script loaded");
 
+  // clear localStorage to make sure updates render proprely
+  function clearLocalStorage() {
+    localStorage.clear(); 
+  }
+  
+  clearLocalStorage();
+
   /********************************
    *         UI ELEMENTS
    ********************************/
