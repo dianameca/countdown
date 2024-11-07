@@ -1,7 +1,10 @@
+//bug : in dove mode, clicks on moods stop the audio playback
+
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("script loaded");
 
-  // clear localStorage to make sure updates render proprely
+  // clear localStorage to make sure updates render properly
   function clearLocalStorage() {
     localStorage.clear(); 
   }
@@ -18,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // init display
   audioToggleButton.innerHTML = "PLAY";
   moodDisplay.innerHTML = "Choose a mood, then press " + 
-                            "<span style='color:red;font-size:120%;'>PLAY</span>";
+                            "<span>PLAY</span>";
 
   /********************************
    *        AUDIO CONTROLS
@@ -94,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("no mood selected");
         moodDisplay.innerHTML = "<span style='font-size:180%;'>⚠️</span>" + 
                                 " Choose a mood before pressing" + 
-                                " <span style='color:red;font-size:120%;'>PLAY</span>";
+                                " <span>PLAY</span>";
         return;
       }
       if (currentAudio) {
@@ -102,8 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
           if (currentAudio.paused) {
               currentAudio.play();
               audioToggleButton.innerHTML = "PAUSE";
-              applyMoodDance(getCurrentMood()); // trigger dance when audio starts playing
               isAutoPlayEnabled = true;
+              // edge case : stickman is hidden
+              applyMoodDance(getCurrentMood()); // trigger dance when audio starts playing
           } else {
               stopAudio();
               isAutoPlayEnabled = false;

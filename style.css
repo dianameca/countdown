@@ -17,12 +17,12 @@
   --button-border-color: #000000;
   --button-border-width-modifier: 3px;
 }
-html[data-theme='color'] {
+html[data-theme='color'] { /* use saturated colors, square color palette */
   --background-color: #fdf2f2;
-  --bg-moods: rgba(253, 84, 84, 0.938);
-  --bg-selected-mood: rgb(144, 255, 218);
-  --bg-wrapper: rgba(253, 84, 84, 0.938);
-  --bg-countdown: rgb(63, 230, 230);
+  --bg-moods:#BC3DFF;
+  --bg-selected-mood:#3DE1FF;
+  --bg-wrapper:rgb(253, 84, 84);
+  --bg-countdown:#00fa92;
   --stickman-outline-color: #000;
   --stickman-inside-color: #fff;
   --box-shadow-color: #adaeb0;
@@ -55,7 +55,7 @@ html {
   font-family: 'Montserrat', sans-serif;
   color: var(--text-color);
   font-weight: bold;
-  font-size: 22px;
+  font-size: 23px;
 }
 html a {
   color: var(--text-color);
@@ -112,7 +112,7 @@ button:hover {
 /*************** AREAS ****************/
 #selected-mood, #countdown, #moods, .wrapper {
   box-shadow: 1px 5px 20px var(--box-shadow-color);
-  padding: 40px;
+  padding: 50px 40px 50px 40px;
   border-radius: 7px;
 }
 #selected-mood {
@@ -282,9 +282,9 @@ footer {
   animation: tempoSlow 1.5s alternate infinite ease-in-out;
 }
 @keyframes tempoMedium {
-  0% { transform: rotate(-80deg); }
-  50% { transform: rotate(70deg); }
-  100% { transform: rotate(-80deg); }
+  0% { transform: rotate(-50deg); }
+  50% { transform: rotate(50deg); }
+  100% { transform: rotate(-50deg); }
 }
 .medium-tempo {
   animation: tempoMedium 0.6s alternate infinite ease-in-out;
@@ -294,12 +294,12 @@ footer {
   100% { transform: rotate(30deg); }
 }
 .fast-tempo {
-  animation: tempoFast 0.07s alternate infinite ease-in-out;
+  animation: tempoFast 0.1s alternate infinite ease-in-out;
 }
 
 /******************* STICKMAN SECTION SPIN *******************/
 .area-spin {
-  animation: tempoMedium 2s ease-in-out infinite;
+  animation: tempoMedium 3s ease-in-out infinite;
 }
 
 /******************* ARMS *******************/
@@ -383,11 +383,8 @@ footer {
     padding: 5px 10px 5px 10px;
     margin: 10px;
   }
-  #moods {
-    padding: 20px;
-  }
-  #countdown {
-    padding: 20px;
+  #moods, #countdown {
+    padding: 40px 20px 40px 20px;
   }
   #theme {
     font-size: 25px;
